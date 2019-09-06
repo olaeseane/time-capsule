@@ -67,7 +67,7 @@ class Item extends React.Component {
             Дата предсказания: {date}
           </Text>
           <Text size="xsmall" margin="xsmall" textAlign="center">
-            CID: {cid}
+            Хэш: {cid}
           </Text>
           <Box pad="small">
             <ThemeContext.Extend

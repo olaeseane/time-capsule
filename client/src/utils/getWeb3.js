@@ -25,9 +25,20 @@ const getWeb3 = () =>
       }
       // Fallback to localhost; use dev console port by default...
       else {
-        const provider = new Web3.providers.HttpProvider('http://127.0.0.1:7545');
+        // const provider = new Web3.providers.HttpProvider('http://127.0.0.1:7545');
+        const provider = new Web3.providers.HttpProvider(
+          'https://ropsten.infura.io/v3/81dc839bdddd4a53ae65338f9b9d533b'
+        );
         // const provider = new Web3.providers.HttpProvider(
-        //   'https://ropsten.infura.io/v3/81dc839bdddd4a53ae65338f9b9d533b'
+        //   'https://ropsten.infura.io/v3/81dc839bdddd4a53ae65338f9b9d533b',
+        //   {
+        //     headers: [
+        //       {
+        //         name: 'Access-Control-Allow-Origin',
+        //         value: 'http://localhost:3000'
+        //       }
+        //     ]
+        //   }
         // );
         const web3 = new Web3(provider);
         console.log('No web3 instance injected, using Local web3.');

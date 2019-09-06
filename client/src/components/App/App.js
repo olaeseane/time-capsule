@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import { Box, ResponsiveContext, Grommet, Grid } from 'grommet';
+// import { Spinning } from 'grommet-controls';
+import { Spinning } from 'grommet-controls/components/Spinning/Spinning';
 
 import Header from '../Header';
 import Footer from '../Footer';
@@ -46,8 +48,21 @@ class App extends Component {
     const { showHelp, predictions } = this.state;
 
     if (predictions === null) {
-      return <div>Загрузка...</div>;
+      return (
+        <Grommet style={{ height: '100vh' }} theme={dark}>
+          <Box
+            align="center"
+            justify="center"
+            pad="small"
+            fill="vertical"
+            background={{ dark: true }}
+          >
+            <Spinning kind="cube-grid" color="accent-4" size="xlarge" />
+          </Box>
+        </Grommet>
+      );
     }
+
     const closeHelp = () => this.setState({ showHelp: false });
     const openHelp = () => this.setState({ showHelp: true });
 
