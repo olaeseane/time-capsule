@@ -1,7 +1,10 @@
+// import 'promise-polyfill/src/polyfill';
+// import 'es6-object-assign/auto';
+// import 'core-js/es/object';
+
 import React, { Component } from 'react';
 
 import { Box, ResponsiveContext, Grommet, Grid } from 'grommet';
-// import { Spinning } from 'grommet-controls';
 import { Spinning } from 'grommet-controls/components/Spinning/Spinning';
 
 import Header from '../Header';
@@ -14,6 +17,10 @@ import { dark } from 'grommet/themes';
 import CapsuleContractInterface from '../../contracts/Capsule.json';
 
 import getWeb3 from '../../utils/getWeb3';
+// import polyfills from '../../utils/polyfills';
+import { isIE } from '../../utils/ie';
+
+// polyfills();
 
 class App extends Component {
   state = { showHelp: false, predictions: null };
@@ -47,6 +54,7 @@ class App extends Component {
   render() {
     const { showHelp, predictions } = this.state;
 
+    if (isIE) return <b>Пожалуйста используйте браузеры Chrome, Firefox, Opera, Edge, Safari</b>;
     if (predictions === null) {
       return (
         <Grommet style={{ height: '100vh' }} theme={dark}>
@@ -110,7 +118,7 @@ class App extends Component {
                     ]}
                   >
                     {predictions.map((p, i) => (
-                      <Item key={i} {...p} gridArea={`item_${i + 1}`} />
+                      <Item size={size} key={i} {...p} gridArea={`item_${i + 1}`} />
                     ))}
                   </Grid>
                 )}

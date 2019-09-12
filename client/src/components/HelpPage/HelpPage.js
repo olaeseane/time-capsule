@@ -1,32 +1,14 @@
 import React from 'react';
 import { ThemeContext, Box, Button, Heading, Layer, Paragraph, Anchor } from 'grommet';
 
-/*
-const CONTENT = `
-
-* * *
-
-Летом 2018 года мы провели летнюю студию **[SAP “Данные есть!”](https://www.youtube.com/watch?v=fbd2vQthJdE&t=4559s)**
-
-Гостей студии мы попросили предсказать ***как будет выглядеть противостояние искусственного интеллекта и человека через 5 и 10 лет***.
-
-Ответы-предсказания были оцифрованы в изображения и хэши* этих изображений сохранены в смарт контракте в блокчейн сети Ethereum по адресу: [0x51b93999044eacff450752ecf4cebf0fc5abf343](https://ropsten.etherscan.io/address/0x51b93999044eacff450752ecf4cebf0fc5abf343#code).
-
-В 2020 году мы снова проведем нашу Летнюю Студию SAP и уже во время первого эфира на этом сайте будет открыт доступ к ответам-предсказаниям 2019 года.
-
-* * *
-
-`;
-*/
-
 class HelpPage extends React.Component {
   render() {
     const { onClose } = this.props;
 
     return (
       <Layer position="right" full="vertical" onEsc={onClose}>
-        <Box direction="column" pad={{ horizontal: 'medium' }}>
-          <Heading level="3">Справка</Heading>
+        <Box pad={{ horizontal: 'medium' }}>
+          <Heading level="2">Справка</Heading>
           <Paragraph margin={{ bottom: 'xsmall', top: 'xsmall' }}>
             Летом 2018 года мы провели летнюю студию SAP
             <br />
@@ -37,14 +19,14 @@ class HelpPage extends React.Component {
             />
           </Paragraph>
           <Paragraph margin={{ bottom: 'xsmall', top: 'xsmall' }}>
-            Гостей студии мы попросили предсказать
+            Гостей студии мы попросили предсказать&nbsp;
             <i>
               как будет выглядеть противостояние искусственного интеллекта и человека через 5 и 10
               лет.
             </i>
           </Paragraph>
           <Paragraph margin={{ bottom: 'xsmall', top: 'xsmall' }}>
-            Ответы-предсказания были оцифрованы в изображения и хэши* этих изображений сохранены в
+            Ответы-предсказания были оцифрованы в изображения, и хэши* этих изображений сохранены в
             смарт контракте в блокчейн сети Ethereum по адресу:
             <Anchor
               target="_blank"

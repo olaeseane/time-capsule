@@ -23,9 +23,10 @@ const links = [
 const Footer = props => {
   return (
     <Box direction="row" gap="large" justify="center" margin={{ vertical: 'large' }}>
-      {links.map(link =>
+      {links.map((link, i) =>
         props.size !== 'small' ? (
           <Anchor
+            key={i}
             target="_blank"
             a11yTitle={link.label}
             href={link.url}

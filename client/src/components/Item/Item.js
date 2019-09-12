@@ -8,7 +8,7 @@ class Item extends React.Component {
   state = { showPrediction: false };
 
   render() {
-    const { name, cid, date, gridArea } = this.props;
+    const { name, cid, date, gridArea, size } = this.props;
     const { showPrediction } = this.state;
 
     const openPrediction = () => this.setState({ showPrediction: true });
@@ -16,12 +16,13 @@ class Item extends React.Component {
     // const ipfsURL = `http://127.0.0.1:8080/ipfs/${cid}`;
     const ipfsURL = `https://ipfs.infura.io/ipfs/${cid}`;
 
+    console.log('item=', size);
     const elementImage = (
       <Layer position="center" onEsc={closePrediction}>
         <Stack anchor="top-right">
           <Box
-            height="large"
-            width="large"
+            height={size === 'small' ? 'large' : 'medium'}
+            width={size === 'small' ? 'large' : 'medium'}
             background={{ color: 'light-3' }}
             pad={{ vertical: 'small', horizontal: 'small' }}
           >
@@ -39,7 +40,7 @@ class Item extends React.Component {
         <Stack anchor="top-right">
           <Box
             height="medium"
-            width="medium"
+            width="large"
             background={{ color: 'light-3' }}
             pad={{ vertical: 'small', horizontal: 'small' }}
           >
